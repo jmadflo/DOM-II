@@ -62,7 +62,26 @@ h1Var.addEventListener('copy', () => {
 document.querySelectorAll('p').forEach( para => {
     para.addEventListener('dblclick', () => {
         let newPara = document.createElement("p").appendChild(document.createTextNode("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."));
-        
+
         document.querySelector(".content-destination").appendChild(newPara);
     })
 })
+
+// first event listener stops propagation of the event, so the event listener after it should never be activated
+let navVar = document.querySelector('nav');
+navVar.addEventListener('dblclick', event => {
+    navVar.style.justifyContent = "flex-start";
+    event.stopPropagation();
+})
+
+headerVar.addEventListener('dblclick', () => {
+    alert("This should not be seen");
+})
+
+// prevent default behavior of links
+// test by pressing home link which has an href connected to the footer
+// document.querySelectorAll('.nav-link').forEach( link => {
+//     link.addEventListener('click', event => {
+//         event.preventDefault();
+//     })
+// })
