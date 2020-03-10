@@ -80,8 +80,8 @@ headerVar.addEventListener('dblclick', () => {
 
 // prevent default behavior of links
 // test by pressing home link which has an href connected to the footer
-// document.querySelectorAll('.nav-link').forEach( link => {
-//     link.addEventListener('click', event => {
-//         event.preventDefault();
-//     })
-// })
+document.querySelectorAll('.nav-link').forEach( link => {
+    link.addEventListener('click', event => {
+        event.preventDefault();
+    })
+})
